@@ -7,27 +7,21 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-[acast src="http://www.acast.com/channel/acast" width="640" height="360"] shortcode
+[acast src="channel/acast" width="640" height="360"] shortcode
 
 == Description ==
 
-Acast shortcode embeds the acast player (as seen on eg. http://www.acast.com/varvet) as an iframe. 
-
-Use the shortcode [acast src="http://www.acast.com/channel/acast" width="640" height="360"]
-
-src param can be set to `channel/acast` or the full url `http://www.acast.com/channel/acast`
+Acast shortcode embeds the acast player (as seen on eg. http://www.acast.com/varvet) as an iframe. Use the shortcode `[acast src="channel/acast" width="640" height="360"]` in your editor. Source can be set to `channel/acast` or the full url `http://www.acast.com/channel/acast`
 
 == Other Notes ==
 
 = acast params: =
-* **src** - REQUIRED. Specify which acast to embed, use full url `src="http://www.acast.com/channel/acast"` or just `src="channel/acast"` (no default);
-* **https** – use https instead of http `[acast src="..." https="on"]`;
-* **width** - width in pixels or in percents (by default width="640");
-* **height** - height in pixels (by default height="360");
-* **scrolling** - parameter `[acast scrolling="yes"]` (by default scrolling="no");
-* **frameborder** - parameter `[acast frameborder="0"]` (by default frameborder="0");
-* **any_other_param** - allows to add new parameter of the iframe `[acast any_other_param="any_value"]`;
-* **any_other_empty_param** - allows to add new empty parameter of the iframe (like "allowfullscreen" on youtube) `[acast any_other_empty_param=""]`;
+* **src** - Specify which acast to embed, use full url `src="http://www.acast.com/channel/acast"` or just `src="channel/acast"` (REQUIRED)
+* **width** - width in pixels or in percents (by default width="640")
+* **height** - height in pixels (by default height="360")
+* **https** – use https instead of http `[acast src="..." https="on"]`
+* **any_other_param** - allows to add new parameter of the iframe `[acast any_other_param="any_value"]`
+* **any_other_empty_param** - allows to add new empty parameter of the iframe (like "allowfullscreen" on youtube) `[acast any_other_empty_param=""]`
 
 == Screenshots ==
 
