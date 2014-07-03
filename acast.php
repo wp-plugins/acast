@@ -13,6 +13,8 @@ if (!function_exists("acast_embed_shortcode")):
 
     function acast_embed_shortcode($attr, $content = null ) {
 
+        $html = "";
+
         $defaults = array(
             "src" => "",
             "https" => "off",
@@ -40,11 +42,36 @@ if (!function_exists("acast_embed_shortcode")):
         
         //Create embed url
         $src = $http . $host . "/" . $matches[4] . "/" . $matches[5];
+        //Responsive?
+        $responsive = ($attr["width"] == "100%" || $attr["responsive"] == "on");
+
+        if ($responsive) {
+            //iframe
+            $attr["height"] = "auto";
+            $attr["width"] = "100%";
+            $attr["style"].= implode(";", array(
+                "position:absolute",
+                "top:0",
+                "left:0",
+                "width:100%",
+                "height:100%"
+                ));
+            //Wrapper
+            $style_wrapper = implode(";", array(
+                "width:100%",
+                "position:relative",
+                "padding-bottom:56.25%",
+                "height:0",
+                "overflow:hidden"
+                ));
+
+            $html .= "<div class='acast-embed-player-wrapper' style='".$style_wrapper."'>";
+        }
 
         //Discard settings that are not attributes
         $discard = array("https");
         
-        $html = "<iframe src='".$src."'";
+        $html .= "<iframe src='".$src."'";
         foreach($attr as $key => $value ) {
             if (in_array($key, $discard)){
                 continue;
@@ -53,6 +80,10 @@ if (!function_exists("acast_embed_shortcode")):
             $html .= ($value !== "") ? "='" . $value . "'" : "";
         }
         $html .= "></iframe>\n";
+
+        if($responsive) {
+            $html .= "</div>";
+        }
 
         return $html;
     }

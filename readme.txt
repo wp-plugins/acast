@@ -11,14 +11,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Acast shortcode embeds the acast player (as seen on eg. http://www.acast.com/varvet) as an iframe. Use the shortcode `[acast src="channel/acast" width="640" height="360"]` in your editor. Source can be set to `channel/acast` or the full url `http://www.acast.com/channel/acast`
+Acast shortcode embeds the acast player (as seen on eg. http://www.acast.com/varvet). 
+
+Use the shortcode `[acast src="channel/acast" width="640" height="360"]` in your editor. Source can be set to `channel/acast` or the full url `http://www.acast.com/channel/acast`.
+
+If you set `width="100%"` the player will automatically fit the width of your blog post.
 
 == Other Notes ==
 
 = acast params: =
 * **src** - Specify which acast to embed, use full url `src="http://www.acast.com/channel/acast"` or just `src="channel/acast"` (REQUIRED)
 * **width** - width in pixels or in percents (by default width="640")
-* **height** - height in pixels (by default height="360")
+* **height** - height in pixels (by default height="360", will be set to `auto` if `width="100%"`)
 * **https** – use https instead of http `[acast src="..." https="on"]`
 * **any_other_param** - allows to add new parameter of the iframe `[acast any_other_param="any_value"]`
 * **any_other_empty_param** - allows to add new empty parameter of the iframe (like "allowfullscreen" on youtube) `[acast any_other_empty_param=""]`
@@ -35,10 +39,8 @@ Acast shortcode embeds the acast player (as seen on eg. http://www.acast.com/var
 
 == Changelog ==
 
+= 0.2 =
+* Added responsive functionality
+
 = 0.1 =
 * [acast] shorturl
-
-== Upgrade Notice ==
-
-= 0.1 =
-First version of the acast.com embed plugin
