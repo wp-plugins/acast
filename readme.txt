@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Acast shortcode embeds the acast player (as seen on eg. http://www.acast.com/varvet). 
+Acast shortcode embeds the acast player (as seen on eg. [http://www.acast.com/varvet](http://www.acast.com/varvet)).
 
 Use the shortcode `[acast src="channel/acast" width="640" height="360"]` in your editor. Source can be set to `channel/acast` or the full url `http://www.acast.com/channel/acast`.
 
