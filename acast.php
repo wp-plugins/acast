@@ -3,7 +3,7 @@
 Plugin Name: acast
 Plugin URI: http://wordpress.org/plugins/acast/
 Description: [acast src="http://www.acast.com/channel/acast" width="640" height="360"] shortcode 
-Version: 1.0
+Version: 0.2
 Author: acast.com
 Author URI: http://www.acast.com
 License: GPLv3
