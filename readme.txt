@@ -32,8 +32,8 @@ If you set `width="100%"` the player will automatically fit the width of your bl
 
 == Installation ==
 
-1. install and activate the plugin on the Plugins page
-2. add shortcode `[acast src="http://www.acast.com/channel/acast" width="..." height="..."]` to page or post content
+1. install and activate the plugin on the Plugins page.
+2. add shortcode `[acast src="http://www.acast.com/channel/acast" width="..." height="..."]` to page or post content.
 
 == Changelog ==
 
