@@ -37,6 +37,9 @@ If you set `width="100%"` the player will automatically fit the width of your bl
 
 == Changelog ==
 
+= 0.3 =
+* Added mp3 link for RSS generators
+
 = 0.2 =
 * Added responsive functionality
 
