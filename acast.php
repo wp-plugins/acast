@@ -38,10 +38,12 @@ if (!function_exists("acast_embed_shortcode")):
         }
 
         $http = $attr["https"] == "on" ? "https://" : "http://";
-        $host = "embed.acast.com";
         
         //Create embed url
-        $src = $http . $host . "/" . $matches[4] . "/" . $matches[5];
+        $channel = $matches[4];
+        $acast = $matches[5];
+        $src = $http . "embed.acast.com/" . $channel . "/" . $acast;
+        $rss = $http . "rss.acast.com/" . $channel . "/" . $acast . "/media.mp3";
         //Responsive?
         $responsive = ($attr["width"] == "100%" || $attr["responsive"] == "on");
 
@@ -80,6 +82,7 @@ if (!function_exists("acast_embed_shortcode")):
             $html .= ($value !== "") ? "='" . $value . "'" : "";
         }
         $html .= "></iframe>\n";
+        $html .= "<audio preload=\"none\" src=\"".$rss."\" style=\"display:none;\"><a href=\"".$rss."\" style=\"display:none;\">Podcast link</a></audio>";
 
         if($responsive) {
             $html .= "</div>";
