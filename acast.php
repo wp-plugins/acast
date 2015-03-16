@@ -2,8 +2,8 @@
 /*
 Plugin Name: acast
 Plugin URI: http://wordpress.org/plugins/acast/
-Description: [acast src="http://www.acast.com/channel/acast" width="640" height="360"] shortcode 
-Version: 0.3
+Description: [acast src="http://www.acast.com/channel/acast" width="480" height="480"] shortcode 
+Version: 0.4
 Author: acast.com
 Author URI: http://www.acast.com
 License: GPLv3
@@ -18,8 +18,8 @@ if (!function_exists("acast_embed_shortcode")):
         $defaults = array(
             "src" => "",
             "https" => "off",
-            "width" => "640",
-            "height" => "360",
+            "width" => "480",
+            "height" => "480",
             "scrolling" => "no",
             "class" => "acast-embed-player",
             "style" => "border:none; overflow:hidden;",
@@ -32,7 +32,7 @@ if (!function_exists("acast_embed_shortcode")):
             }
         }
 
-        $re = "/^((https?:\/\/)?(www\.|embed\.)?acast\.com)?\/?([^\/]+)\/([^\?\/]+)/"; 
+        $re = "/^((https?:\/\/)?(www\.|embed\.)?acast\.com)?\/?([^\/]+)(\/([^\?\/]+))?/"; 
         if (!preg_match($re, $attr["src"], $matches)) {
             return "<strong style='color:#c00;'>[ACAST ERROR] No acast provided</strong>";
         }
@@ -41,9 +41,13 @@ if (!function_exists("acast_embed_shortcode")):
         
         //Create embed url
         $channel = $matches[4];
-        $acast = $matches[5];
-        $src = $http . "embed.acast.com/" . $channel . "/" . $acast;
-        $rss = $http . "rss.acast.com/" . $channel . "/" . $acast . "/media.mp3";
+        $acast = $matches[6];
+        if (empty($acast)) {
+            $src = $http . "embed.acast.com/" . $channel;
+        } else {
+            $src = $http . "embed.acast.com/" . $channel . "/" . $acast;
+            $rss = $http . "rss.acast.com/" . $channel . "/" . $acast . "/media.mp3";
+        }
         //Responsive?
         $responsive = ($attr["width"] == "100%" || $attr["responsive"] == "on");
 
@@ -62,7 +66,7 @@ if (!function_exists("acast_embed_shortcode")):
             $style_wrapper = implode(";", array(
                 "width:100%",
                 "position:relative",
-                "padding-bottom:56.25%",
+                "padding-bottom:100%",
                 "height:0",
                 "overflow:hidden"
                 ));
@@ -82,7 +86,9 @@ if (!function_exists("acast_embed_shortcode")):
             $html .= ($value !== "") ? "='" . $value . "'" : "";
         }
         $html .= "></iframe>\n";
-        $html .= "<audio preload=\"none\" src=\"".$rss."\" style=\"display:none;\"><a href=\"".$rss."\" style=\"display:none;\">Podcast link</a></audio>";
+        if(!empty($rss)) {
+            $html .= "<audio preload=\"none\" src=\"".$rss."\" style=\"display:none;\"><a href=\"".$rss."\" style=\"display:none;\">Podcast link</a></audio>";
+        }
 
         if($responsive) {
             $html .= "</div>";

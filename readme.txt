@@ -5,22 +5,22 @@ Tested up to: 3.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-[acast src="channel/acast" width="640" height="360"] shortcode
+[acast src="channel/acast" width="480" height="480"] shortcode
 
 == Description ==
 
 Acast shortcode embeds the acast player (as seen on eg. [http://www.acast.com/varvet](http://www.acast.com/varvet)).
 
-Use the shortcode `[acast src="channel/acast" width="640" height="360"]` in your editor. Source can be set to `channel/acast` or the full url `http://www.acast.com/channel/acast`.
+Use the shortcode `[acast src="channel/acast" width="480" height="480"]` in your editor. Source can be set to `channel` or `channel/acast` or the full url `http://www.acast.com/channel/acast`.
 
 If you set `width="100%"` the player will automatically fit the width of your blog post.
 
 == Other Notes ==
 
 = acast params: =
-* **src** - Specify which acast to embed, use full url `src="http://www.acast.com/channel/acast"` or just `src="channel/acast"` (REQUIRED)
-* **width** - width in pixels or in percents (by default width="640")
-* **height** - height in pixels (by default height="360", will be set to `auto` if `width="100%"`)
+* **src** - Specify which acast to embed, use full url `src="http://www.acast.com/channel/acast"` or `src="channel/acast"`. You can also specify just the `src="channel"` for the latest episode. (REQUIRED)
+* **width** - width in pixels or in percents (by default width="480")
+* **height** - height in pixels (by default height="480", will be set to `auto` if `width="100%"`)
 * **https** – use https instead of http `[acast src="..." https="on"]`
 * **any_other_param** - allows to add new parameter of the iframe `[acast any_other_param="any_value"]`
 * **any_other_empty_param** - allows to add new empty parameter of the iframe (like "allowfullscreen" on youtube) `[acast any_other_empty_param=""]`
